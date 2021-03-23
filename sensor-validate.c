@@ -21,7 +21,7 @@ int IsListConsecutiveValuesDiffNotMoreThanMaxDelta (double* values, int numOfVal
 
 int validateSOCreadings(double* values, int numOfValues) {
   double SOCReadings_maxDelta = 0.05 ;
-  return IsListConsecutiveValuesDiffMoreThanMaxDelta(values,numOfValues, SOCReadings_maxDelta); 
+  return IsListConsecutiveValuesDiffNotMoreThanMaxDelta(values,numOfValues, SOCReadings_maxDelta); 
 }
 
 int validateCurrentreadings(double* values, int numOfValues) {
