@@ -25,22 +25,24 @@ int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
 
 int validateSOCreadings(double* values, int numOfValues)
 {
+  int IsValidationPassed = TRUE;
   double maxDeltabetweenReadings = 0.05 ;
 
   if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenReadings) == TRUE)
   {
-    return 0;
+    IsValidationPassed = FALSE;
   }
-  return 1;  
+  return IsValidationPassed;  
 }
 
 int validateCurrentreadings(double* values, int numOfValues)
 {
+  int IsValidationPassed = TRUE;
   double maxDeltabetweenReadings = 0.1 ;
 
   if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenReadings) == TRUE)
   {
-    return 0;
+    IsValidationPassed = FALSE;
   }
-  return 1; 
+  return IsValidationPassed; 
 }
