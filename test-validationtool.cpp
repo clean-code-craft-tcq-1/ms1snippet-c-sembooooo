@@ -30,7 +30,7 @@ TEST_CASE("reports sucess when a smooth transition present in current") {
 
 TEST_CASE("Checks if assertion is failed during null pointer as parameter ") {
   double *Readings = 0;
-  int numOfReadings = 10 /*dummy value */
+  int numOfReadings = 10; /*dummy value */
   double maxDelta = 5.0;
-  REQUIRE_THROWS(IsChangeinValuesAbrupt(Readings,numOfReadings,maxDelta)));
+  REQUIRE_THROWS(IsChangeinValuesAbrupt(Readings,numOfReadings,maxDelta));
 }
