@@ -44,9 +44,3 @@ int validateCurrentreadings(double* values, int numOfValues)
   }
   return 1; 
 }
-
-
-int main()
-{
-  return 0;
-}
