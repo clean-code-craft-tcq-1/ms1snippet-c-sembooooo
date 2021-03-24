@@ -32,5 +32,5 @@ TEST_CASE("Checks if assertion is failed during null pointer as parameter ") {
   double *Readings = 0;
   int numOfReadings = 10; /*dummy value */
   double maxDelta = 5.0;
-  REQUIRE_THROWS_AS(IsChangeinValuesAbrupt(Readings,numOfReadings,maxDelta),std::exception);
+  REQUIRE_THROWS(IsChangeinValuesAbrupt(Readings,numOfReadings,maxDelta));
 }
