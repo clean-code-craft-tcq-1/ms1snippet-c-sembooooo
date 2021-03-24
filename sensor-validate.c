@@ -27,7 +27,6 @@ int validateSOCreadings(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenReadings = 0.05 ;
-{0.0, 0.01, 0.02, 0.03};
   if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenReadings) == TRUE)
   {
     IsValidationPassed = FALSE;
@@ -47,10 +46,3 @@ int validateCurrentreadings(double* values, int numOfValues)
   return IsValidationPassed; 
 }
 
-
-int main()
-{
-  double socReadings[] = 
-  int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
-  validateSOCreadings(socReadings, numOfSocReadings);
-}
