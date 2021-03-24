@@ -25,7 +25,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 TEST_CASE("reports sucess when a smooth transition present in current") {
   double currentReadings[] = {0.0, 0.1, 0.2, 0.3};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
-  REQUIRE(validateSOCreadings(currentReadings, numOfCurReadings) == 1);
+  REQUIRE(validateCurrentreadings(currentReadings, numOfCurReadings) == 1);
 }
 
 #if 0
