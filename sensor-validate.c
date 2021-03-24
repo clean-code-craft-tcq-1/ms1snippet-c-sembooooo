@@ -15,7 +15,7 @@ int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
 {
   int lastButOneIndex = numOfValues - 1;
   for(int i = 0; i < lastButOneIndex; i++) {
-    if(IsDifferenceMoreThanMaxDelta(values[i], values[i + 1],maxDelta) == FALSE) {
+    if(IsDifferenceMoreThanMaxDelta(values[i], values[i + 1],maxDelta) == TRUE) {
       return 1;
     }
   }
@@ -27,7 +27,7 @@ int validateSOCreadings(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenReadings = 0.05 ;
-
+{0.0, 0.01, 0.02, 0.03};
   if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenReadings) == TRUE)
   {
     IsValidationPassed = FALSE;
@@ -45,4 +45,12 @@ int validateCurrentreadings(double* values, int numOfValues)
     IsValidationPassed = FALSE;
   }
   return IsValidationPassed; 
+}
+
+
+int main()
+{
+  double socReadings[] = 
+  int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
+  validateSOCreadings(socReadings, numOfSocReadings);
 }
