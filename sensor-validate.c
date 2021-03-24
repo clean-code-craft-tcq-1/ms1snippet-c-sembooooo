@@ -14,6 +14,7 @@ int IsDifferenceMoreThanMaxDelta(double value, double nextValue, double maxDelta
 int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
 {
   int lastButOneIndex = numOfValues - 1;
+  assert(values!= 0);
   for(int i = 0; i < lastButOneIndex; i++) {
     if(IsDifferenceMoreThanMaxDelta(values[i], values[i + 1],maxDelta) == TRUE) {
       return TRUE;

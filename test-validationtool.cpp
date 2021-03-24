@@ -28,8 +28,9 @@ TEST_CASE("reports sucess when a smooth transition present in current") {
   REQUIRE(validateCurrentreadings(currentReadings, numOfCurReadings) == 1);
 }
 
-#if 0
+/**
 https://stackoverflow.com/questions/38533272/use-c-catch-framework-to-verify-assert-statement
+*/
 
 TEST_CASE("Checks if assertion is failed during null pointer as parameter ") {
   double *Readings = 0;
@@ -37,5 +38,3 @@ TEST_CASE("Checks if assertion is failed during null pointer as parameter ") {
   double maxDelta = 5.0;
   REQUIRE_THROWS(IsChangeinValuesAbrupt(Readings,numOfReadings,maxDelta));
 }
-
-#endif
