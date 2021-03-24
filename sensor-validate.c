@@ -1,3 +1,8 @@
+/***
+ * 
+ * Refer readme.md file for understanding the reasons behind my naming
+ */ 
+
 #include "sensor-validate.h"
 #include <assert.h>
 
@@ -25,7 +30,7 @@ int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
 }
 
 
-int validateSOCreadings(double* values, int numOfValues)
+int IsChangeInSOCReadingsAbrupt(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenValues = 0.05 ;
@@ -36,7 +41,7 @@ int validateSOCreadings(double* values, int numOfValues)
   return IsValidationPassed;  
 }
 
-int validateCurrentreadings(double* values, int numOfValues)
+int IsChangeInCurrentReadingsAbrupt(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenValues = 0.1 ;
