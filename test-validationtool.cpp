@@ -2,7 +2,6 @@
 
 #include "test/catch.hpp"
 #include "sensor-validate.h"
-#include <stdio.h>
 
 /**************************************************************************************
  *                            SOC Readings Related Testcases
@@ -32,7 +31,12 @@ TEST_CASE("reports sucess when a smooth transition present in soc ") {
 
 TEST_CASE("reports error when current jumps abruptly") {
   double currentReadings[] = {0.0, 0.02, 0.03, 0.33};
-  printf("%f", (0.33-0.3));
+  int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
+  REQUIRE(IsCurrentReadingsValid(currentReadings, numOfCurReadings) == 0);
+}
+
+TEST_CASE("reports error when list is not being traversed completely for current Readings") {
+  double currentReadings[] = {0.0, 0.02, 0.03, 0.04 ,0.5};;
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(IsCurrentReadingsValid(currentReadings, numOfCurReadings) == 0);
 }
