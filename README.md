@@ -83,8 +83,8 @@ As magical numbers 1 and 0 are not readable i implemented two very simple macros
 and `FALSE`.
 
 According to me`validateSOCreadings` and `validateCurrentreadings` are bad names.
-Better names would be a context based such as `IsChangeInSOCReadingsAbrupt()` and 
-`IsChangeInCurrentReadingsAbrupt`
+Better names would be a context based such as `IsSOCReadingsPlausible()` and 
+`IsCurrentReadingsPlausible`
 
 
 

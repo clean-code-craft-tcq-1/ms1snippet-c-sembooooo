@@ -30,7 +30,7 @@ int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
 }
 
 
-int IsChangeInSOCReadingsAbrupt(double* values, int numOfValues)
+int IsSOCReadingsPlausible(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenValues = 0.05 ;
@@ -41,7 +41,7 @@ int IsChangeInSOCReadingsAbrupt(double* values, int numOfValues)
   return IsValidationPassed;  
 }
 
-int IsChangeInCurrentReadingsAbrupt(double* values, int numOfValues)
+int IsCurrentReadingsPlausible(double* values, int numOfValues)
 {
   int IsValidationPassed = TRUE;
   double maxDeltabetweenValues = 0.1 ;
