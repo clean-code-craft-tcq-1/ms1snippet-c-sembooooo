@@ -2,6 +2,7 @@
 
 #include "test/catch.hpp"
 #include "sensor-validate.h"
+#include <stdio.h>
 
 /**************************************************************************************
  *                            SOC Readings Related Testcases
@@ -10,19 +11,19 @@
 TEST_CASE("reports error when soc jumps abruptly") {
   double socReadings[] = {0.0, 0.01, 0.5, 0.51};
   int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
-  REQUIRE(IsSOCReadingsPlausible(socReadings, numOfSocReadings) == 0);
+  REQUIRE(IsSOCReadingsValid(socReadings, numOfSocReadings) == 0);
 }
 
 TEST_CASE("reports error when list is not being traversed completely in SOC") {
   double socReadings[] = {0.0, 0.01, 0.02, 0.5};
   int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
-  REQUIRE(IsSOCReadingsPlausible(socReadings, numOfSocReadings) == 0);
+  REQUIRE(IsSOCReadingsValid(socReadings, numOfSocReadings) == 0);
 }
 
 TEST_CASE("reports sucess when a smooth transition present in soc ") {
   double socReadings[] = {0.0, 0.01, 0.02, 0.03};
   int numOfSocReadings = sizeof(socReadings) / sizeof(socReadings[0]);
-  REQUIRE(IsSOCReadingsPlausible(socReadings, numOfSocReadings) == 1);
+  REQUIRE(IsSOCReadingsValid(socReadings, numOfSocReadings) == 1);
 }
 
 /**************************************************************************************
@@ -31,15 +32,16 @@ TEST_CASE("reports sucess when a smooth transition present in soc ") {
 
 TEST_CASE("reports error when current jumps abruptly") {
   double currentReadings[] = {0.0, 0.02, 0.03, 0.33};
+  printf("%f", (0.33-0.3));
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
-  REQUIRE(IsCurrentReadingsPlausible(currentReadings, numOfCurReadings) == 0);
+  REQUIRE(IsCurrentReadingsValid(currentReadings, numOfCurReadings) == 0);
 }
 
 
 TEST_CASE("reports sucess when a smooth transition present in current") {
   double currentReadings[] = {0.0, 0.1, 0.2, 0.3};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
-  REQUIRE(IsCurrentReadingsPlausible(currentReadings, numOfCurReadings) == 1);
+  REQUIRE(IsCurrentReadingsValid(currentReadings, numOfCurReadings) == 1);
 }
 
 #if 0
