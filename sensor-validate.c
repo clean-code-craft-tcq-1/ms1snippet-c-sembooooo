@@ -1,28 +1,55 @@
+/***
+ * 
+ * Refer readme.md file for understanding the reasons behind my naming
+ */ 
+
 #include "sensor-validate.h"
+#include <assert.h>
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta) {
+#define TRUE    1
+#define FALSE   0
+
+int IsDifferenceMoreThanMaxDelta(double value, double nextValue, double maxDelta) {
   if(nextValue - value > maxDelta) {
-    return 0;
+    return TRUE;
   }
-  return 1;
+  return FALSE;
 }
 
-int validateSOCreadings(double* values, int numOfValues) {
+
+int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta)
+{
   int lastButOneIndex = numOfValues - 1;
+  assert(values!= 0);
   for(int i = 0; i < lastButOneIndex; i++) {
-    if(!_give_me_a_good_name(values[i], values[i + 1], 0.05)) {
-      return 0;
+    if(IsDifferenceMoreThanMaxDelta(values[i], values[i + 1],maxDelta) == TRUE) {
+      return TRUE;
     }
   }
-  return 1;
+  return FALSE;
 }
 
-int validateCurrentreadings(double* values, int numOfValues) {
-  int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) {
-    if(!_give_me_a_good_name(values[i], values[i + 1], 0.1)) {
-      return 0;
-    }
+
+int IsSOCReadingsValid(double* values, int numOfValues)
+{
+  int IsValidationPassed = TRUE;
+  double maxDeltabetweenValues = 0.05 ;
+  if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenValues) == TRUE)
+  {
+    IsValidationPassed = FALSE;
   }
-  return 1;
+  return IsValidationPassed;  
 }
+
+int IsCurrentReadingsValid(double* values, int numOfValues)
+{
+  int IsValidationPassed = TRUE;
+  double maxDeltabetweenValues = 0.1 ;
+
+  if(IsChangeinValuesAbrupt(values,numOfValues,maxDeltabetweenValues) == TRUE)
+  {
+    IsValidationPassed = FALSE;
+  }
+  return IsValidationPassed; 
+}
+

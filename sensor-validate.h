@@ -1,6 +1,8 @@
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta);
+int IsDifferenceMoreThanMaxDelta(double value, double nextValue, double maxDelta);
 
-int validateSOCreadings(double* values, int numOfValues);
+int IsChangeinValuesAbrupt (double* values, int numOfValues, double maxDelta);
 
-int validateCurrentreadings(double* values, int numOfValues);
+int IsSOCReadingsValid(double* values, int numOfValues); 
+
+int IsCurrentReadingsValid(double* values, int numOfValues);
